@@ -1,0 +1,84 @@
+#include <iostream>             
+// Includes the input/output stream library
+using namespace std;            
+// Allows us to use cout and cin without std::
+
+class Complex {                  
+    // Defines a class named Complex
+    float real, imag;          
+    // Declares variables to store real and imaginary parts
+
+public:                          
+    // Makes the following functions accessible from outside the class
+
+    void input() {               
+        // Defines a function to take input from the user
+        cout << "Enter real part: ";     
+        // Asks the user to enter the real part
+        cin >> real;            
+        // Stores the entered real part in the real variable
+
+        cout << "Enter imaginary part: "; 
+        // Asks the user to enter the imaginary part
+        cin >> imag;             
+        // Stores the entered imaginary part in the imag variable
+    }                           
+    // Ends the input function
+
+    Complex operator+(Complex c) { 
+        // Overloads the + operator for Complex objects
+        Complex temp;           
+        // Creates a temporary Complex object
+
+        temp.real = real + c.real;
+        // Adds the real parts of two complex numbers
+        temp.imag = imag + c.imag; 
+        // Adds the imaginary parts of two complex numbers
+
+        return temp;             
+        // Returns the resulting complex number
+    }                           
+    // Ends the operator+ function
+
+    void display() {             
+        // Defines a function to display a complex number
+        cout << real << " + " << imag << "i" << endl;
+        // Prints the complex number
+    }                            
+    // Ends the display function
+};                               
+// Ends the Complex class
+
+int main() {                     
+    // Starting point of the C++ program
+
+    Complex c1, c2, c3, sum;     
+    // Creates four objects of the Complex class
+
+    cout << "Enter first complex number:\n";
+    // Displays a message for the first number
+    c1.input();                 
+    // Takes input for the first complex number
+
+    cout << "\nEnter second complex number:\n";
+    // Displays a message for the second number
+    c2.input();                 
+    // Takes input for the second complex number
+
+    cout << "\nEnter third complex number:\n";
+    // Displays a message for the third number
+    c3.input();                  
+    // Takes input for the third complex number
+
+    sum = c1 + c2 + c3;           
+    // Adds all three complex numbers using overloaded + operator
+
+    cout << "\nSum of three complex numbers = ";
+    // Displays the result message
+    sum.display();             
+    // Displays the final sum
+
+    return 0;                   
+    // Ends the program successfully
+}                                
+// Ends the main function
