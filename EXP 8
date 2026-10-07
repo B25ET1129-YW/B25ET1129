@@ -1,0 +1,88 @@
+#include <iostream>              
+// Includes the input/output library.
+#include <string>                 
+// Includes the string data type.
+using namespace std;             
+// Allows us to use standard library names without std::.
+
+// Base class for employee's basic information.
+class Employee
+{
+protected:
+    int empId;                      // Stores the employee ID.
+    string name;                    // Stores the employee name.
+
+public:
+    void getEmployee()
+    {
+        cout << "Enter Employee ID: ";    
+        // Asks the user to enter employee ID.
+        cin >> empId;                     
+        // Reads the employee ID.
+
+        cout << "Enter Employee Name: ";    
+        // Asks the user to enter employee name.
+        cin >> name;                   
+        // Reads the employee name.
+    }
+};
+// base class for empplyee qualififcation information
+class Qualification
+{
+protected:
+    string degree;                 
+    // Stores the employee's degree.
+    string university;             
+    // Stores the university name.
+
+public:
+    void getQualification()
+    {
+        cout << "Enter Degree: ";           
+        // Asks the user to enter the degree.
+        cin >> degree;                      
+        // Reads the degree.
+
+        cout << "Enter University: ";       
+        // Asks the user to enter university.
+        cin >> university;                  
+        // Reads the university name.
+    }
+};
+// Derived class inheriting from both Employee and Qualification.
+
+class EmployeeProfile : public Employee, public Qualification
+{
+public:
+    void displayProfile()
+    {
+        cout << "\n--- Employee Educational Profile ---" << endl; 
+        // Displays the heading.
+
+        cout << "Employee ID: " << empId << endl;         
+        // Displays employee ID.
+        cout << "Employee Name: " << name << endl;           
+        // Displays employee name.
+        cout << "Degree: " << degree << endl;          
+        // Displays employee degree.
+        cout << "University: " << university << endl;       
+        // Displays university name.
+    }
+};
+
+// Main function where program execution begins.
+int main()
+{
+    EmployeeProfile emp;        
+    // Creates an object of EmployeeProfile class.
+
+    emp.getEmployee();           
+    // Calls the function to enter basic employee information.
+    emp.getQualification();     
+    // Calls the function to enter qualification information.
+    emp.displayProfile();        
+    // Calls the function to display the educational profile.
+
+    return 0;                    
+    // Ends the program successfully.
+}
