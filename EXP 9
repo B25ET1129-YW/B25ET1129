@@ -1,0 +1,45 @@
+#include <iostream> // Includes input and output functions
+using namespace std; // Allows use of standard library names
+
+class Notification // Defines the base class Notification
+{
+public: // Makes the following function accessible publicly
+    virtual void send() // Declares a virtual function for runtime polymorphism
+    {
+        cout << "Sending a notification..." << endl; // Displays a default message
+    } // Ends the send() function
+}; // Ends the Notification class
+
+class Email : public Notification // Derives Email from Notification
+{
+public: // Declares the following function as public
+    void send() override // Overrides the base class send() function
+    {
+        cout << "Sending notification through Email." << endl; // Displays the email message
+    } // Ends the send() function
+}; // Ends the Email class
+
+class SMS : public Notification // Derives SMS from Notification
+{
+public: // Declares the following function as public
+    void send() override // Overrides the base class send() function
+    {
+        cout << "Sending notification through SMS." << endl; // Displays the SMS message
+    } // Ends the send() function
+}; // Ends the SMS class
+
+int main() // Main function: program execution starts here
+{
+    Email e; // Creates an object of the Email class
+    SMS s; // Creates an object of the SMS class
+
+    Notification *n; // Declares a base class pointer
+
+    n = &e; // Makes the pointer point to the Email object
+    n->send(); // Calls Email's send() function at runtime
+
+    n = &s; // Makes the pointer point to the SMS object
+    n->send(); // Calls SMS's send() function at runtime
+
+    return 0; // Ends the program successfully
+} // Ends the main() function
