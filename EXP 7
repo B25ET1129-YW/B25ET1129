@@ -1,0 +1,49 @@
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Define a class named String
+class String
+{
+private:
+    string str;  // Data member to store the sentence
+
+public:
+    // Constructor: initializes the string
+    String()
+    {
+        str = "";
+        cout << "Constructor called." << endl;
+    }
+
+    // Accept() function to input a complete sentence
+    void Accept()
+    {
+        cout << "Enter a complete sentence: ";
+        getline(cin, str);  // Accepts spaces in the sentence
+    }
+
+    // Display() function to display the sentence
+    void Display()
+    {
+        cout << "The entered sentence is: " << str << endl;
+    }
+
+    // Destructor: called automatically when the object is destroyed
+    ~String()
+    {
+        cout << "Destructor called." << endl;
+    }
+};
+
+// Main function
+int main()
+{
+    String s;     // Create an object of the String class
+
+    s.Accept();   // Call Accept() to input the sentence
+    s.Display();  // Call Display() to show the sentence
+
+    return 0;     // End of the program
+}
