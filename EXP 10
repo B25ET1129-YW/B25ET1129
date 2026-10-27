@@ -1,0 +1,33 @@
+#include <iostream> // Includes input and output functions
+#include <stdexcept> // Includes standard exception classes
+using namespace std; // Allows use of standard library names
+
+int main() // Main function: program execution starts here
+{
+    double percentage; // Declares a variable to store percentage
+
+    try // Starts the try block to handle exceptions
+    {
+        cout << "Enter student's percentage: "; // Prompts the user
+        cin >> percentage; // Accepts the percentage from the user
+
+        if (cin.fail()) // Checks whether the input is invalid or non-numeric
+        {
+            throw invalid_argument("Invalid input! Please enter a number."); // Throws an exception for non-numeric input
+        } // Ends the if block
+
+        if (percentage < 0 || percentage > 100) // Checks whether percentage is outside the valid range
+        {
+            throw out_of_range("Percentage must be between 0 and 100."); // Throws an exception for an invalid percentage
+        } // Ends the if block
+
+        cout << "Valid percentage: " << percentage << "%" << endl; // Displays the valid percentage
+    } // Ends the try block
+
+    catch (const exception &e) // Catches standard exceptions
+    {
+        cout << "Exception caught: " << e.what() << endl; // Displays the exception message
+    } // Ends the catch block
+
+    return 0; // Terminates the program successfully
+} // Ends the main function
